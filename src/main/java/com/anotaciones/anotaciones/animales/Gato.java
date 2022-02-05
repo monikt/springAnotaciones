@@ -9,6 +9,8 @@ import org.springframework.stereotype.Component;
 public class Gato extends Felino {
 
     private Propietario objpropietario;
+    @Autowired
+    public Juguete objJuguete;
 
     @Autowired
     public Gato(Propietario objPropietario) {
