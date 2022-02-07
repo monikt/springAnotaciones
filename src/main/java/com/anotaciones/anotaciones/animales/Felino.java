@@ -4,6 +4,7 @@ public abstract class Felino {
     
     private String tipo;
     private String tamaño;
+    private String nombre;
     
     public abstract String saltarAlto();
     public String getTipo() {
@@ -21,6 +22,15 @@ public abstract class Felino {
     public void setTamaño(String tamaño) {
         this.tamaño = tamaño;
     }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+    
 
 
 }
