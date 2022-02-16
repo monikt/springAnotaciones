@@ -5,18 +5,21 @@ import com.anotaciones.anotaciones.animales.Gato;
 import com.anotaciones.anotaciones.animales.Leopardo;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 @SpringBootApplication
 public class AnotacionesApplication {
+    static Logger applicationContextLogger = Logger.getLogger(AnotacionesApplication.class.getName());
 
 	public static void main(String[] args) {
 		SpringApplication.run(AnotacionesApplication.class, args);
-		ApplicationContext applicationContext = SpringApplication.run(AnotacionesApplication.class, args);
-		/*Felino felino = applicationContext.getBean("gato", Gato.class);*/
+		//ApplicationContext applicationContext = SpringApplication.run(AnotacionesApplication.class, args);
+		AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(AnimalConfiguration.class);
+        /*Felino felino = applicationContext.getBean("gato", Gato.class);*/
 		Gato gato  = applicationContext.getBean("gato", Gato.class);
 		gato.getObjpropietario().setName("Monica C");
 		gato.objJuguete.setNombreJuguete("pelota de ule");
@@ -48,6 +51,8 @@ public class AnotacionesApplication {
                 System.out.println("var result: "+result);
                 System.out.println("object : "+gato);
                 System.out.println("var result: "+gato2);
+               applicationContextLogger.fine("pruebaLog");
+
 	}
 
 }
