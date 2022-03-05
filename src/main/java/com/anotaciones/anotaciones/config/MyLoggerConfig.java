@@ -1,4 +1,4 @@
-package com.anotaciones.anotaciones.comunes;
+package com.anotaciones.anotaciones.config;
 
 import org.springframework.boot.logging.java.SimpleFormatter;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;

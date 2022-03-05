@@ -1,5 +1,7 @@
 package com.anotaciones.anotaciones.animales;
 
+import org.springframework.beans.factory.annotation.Value;
+
 public class Guepardo extends Felino{
 
     private ReservaNatural reservaNatural;

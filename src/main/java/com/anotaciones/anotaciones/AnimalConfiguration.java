@@ -3,7 +3,8 @@ package com.anotaciones.anotaciones;
 import com.anotaciones.anotaciones.animales.Felino;
 import com.anotaciones.anotaciones.animales.Guepardo;
 import com.anotaciones.anotaciones.animales.ReservaNatural;
-import com.anotaciones.anotaciones.comunes.MyLoggerConfig;
+import com.anotaciones.anotaciones.config.FileSystemConfing;
+import com.anotaciones.anotaciones.config.MyLoggerConfig;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -12,7 +13,7 @@ import org.springframework.context.annotation.PropertySource;
 
 @Configuration
 @ComponentScan("com.anotaciones.anotaciones")
-@PropertySource("classpath:mylogger.properties")
+@PropertySource("application.properties")
 public class AnimalConfiguration {
     @Bean
     public MyLoggerConfig myLoggerConfig(@Value("${root.logger.level}") String rootLoggerLevel,
@@ -31,8 +32,12 @@ public class AnimalConfiguration {
      * @return
      */
     @Bean
-    public Felino guepardo(){
+    public Felino getGuepardo(){
       return new Guepardo(getReserva());
+    }
+    @Bean
+    public FileSystemConfing getFileSystemConfing (){
+        return new FileSystemConfing();
     }
 
 }

@@ -6,10 +6,12 @@ import com.anotaciones.anotaciones.animales.Leopardo;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
+import java.util.regex.Pattern;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import com.anotaciones.anotaciones.config.FileSystemConfing;
 
 @SpringBootApplication
 public class AnotacionesApplication {
@@ -51,7 +53,11 @@ public class AnotacionesApplication {
                 System.out.println("var result: "+result);
                 System.out.println("object : "+gato);
                 System.out.println("var result: "+gato2);
-               applicationContextLogger.fine("pruebaLog");
+
+        applicationContextLogger.fine("***************************inyeccion using configuration filee***************************");
+        FileSystemConfing  file  = applicationContext.getBean(FileSystemConfing.class);
+        applicationContextLogger.fine("max malue"+ file.getMaxStorage());
+
 
 	}
 
